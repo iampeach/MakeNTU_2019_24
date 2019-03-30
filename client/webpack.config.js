@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-	entry: ['./src/js/index.js', './src/scss/style.scss'],
+	entry: ['babel-polyfill', './src/js/index.js', './src/scss/style.scss'],
 	module: {
 		rules: [
 			{
