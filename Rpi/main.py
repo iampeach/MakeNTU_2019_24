@@ -9,13 +9,14 @@ mainUrl = "10.20.2.99"
 #init
 print(util.makelog("INIT"))
 cam = libcam.prepareCam()
+detector = util.Detector()
 
 #run
 while True:
 	print(util.makelog("capture"))
 	pic = libcam.capture(cam)
 
-	if True : #TODO
+	if detector.predict(pic) : #TODO
 		print(util.makelog("got object"))
 		lat, lon = libgps.getPos()
 		print(util.makelog("lat:" + str(lat) + ", long:" + str(lon)))
