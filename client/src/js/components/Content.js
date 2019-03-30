@@ -7,7 +7,8 @@ import Register from './contents/Register'
 export default class Content extends Component {
 	state = {
 		monitor:[
-			{ name: 'obj_name', time: '' }
+			{ name: 'obj_name', time: '' },
+			{ name: 'obj_name3', time: '' }
 		]
 	}
 	componentDidMount() {
@@ -24,8 +25,9 @@ export default class Content extends Component {
 		}))
 		this.setState( state => {
 			var monitor = state.monitor
-			monitor[idx] = { name: monitor[idx].name, time: time }
-			return { monitor : monitor }
+			var obj = { name: monitor[idx].name, time: time }
+			monitor.splice(idx, 1)
+			return { monitor : [...monitor, obj] }
 		})
 	}
 	render() {

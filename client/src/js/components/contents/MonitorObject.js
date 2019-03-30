@@ -5,7 +5,7 @@ export default class MonitorObject extends Component {
 		isObject: this.props.isObject || false
 	}
 	render() {
-		var nameStyle = 'w-300 pd-20 mr-5 bold'
+		var nameStyle = 'w-300 pd-20 mr-10 bold'
 		if (this.state.isObject) nameStyle = nameStyle + ' bg-washed-blue'
 		return(
 			<div className='mr-0-100 fl-row align-center'>

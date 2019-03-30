@@ -3,9 +3,10 @@ import MonitorObject from './MonitorObject'
 
 export default class Monitor extends Component {
 	render() {
-		var objects = this.props.objects.map((obj, idx)=>
-			<MonitorObject object={obj} isObject={true} key={idx}/>
-		)
+		var objects = []
+		for (let i = this.props.objects.length-1; i >= 0; --i){
+			objects.push(<MonitorObject object={this.props.objects[i]} isObject={true} key={i}/>)
+		}
 		return (
 			<div className='fl-col align-center'>
 				<MonitorObject object={{name: 'Monitoring Object', time: 'Time'}}/>
