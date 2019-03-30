@@ -13,8 +13,9 @@ detector = util.Detector()
 
 #run
 while True:
-	print(util.makelog("take picture"))
+	print(util.makelog("start take picture"))
 	pic = libcam.capture(cam)
+	print(util.makelog("end take picture"))
 
 	if detector.predict(pic) : #TODO
 		print(util.makelog("got object"))
