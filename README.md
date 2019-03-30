@@ -1,5 +1,6 @@
-# Webpack Template
-* A template to start a React App project
+# MakeNTU 2019 Team24
+* Lazy Tech 
+* Make People lazier
 ## How to start
 	$ npm install
 	$ npm start		// to start a dev server
