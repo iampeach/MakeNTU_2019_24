@@ -5,11 +5,7 @@ var bodyParser = require('body-parser')
 var socket = require('socket.io')
 var port = process.env.PORT || 3000
 
-var dataBase = [
-	{ name: 'obj_name1', time: '00:00:00' },
-	{ name: 'obj_name2', time: '00:00:00' },
-	{ name: 'obj_name3', time: '00:00:00' }
-]
+var dataBase = []
 var addData = []
 var patchData = []
 

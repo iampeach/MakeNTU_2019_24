@@ -24,7 +24,7 @@ export default class Content extends Component {
 		})
 		socket.on('patch_data_base', data_base => {
 			for (let i = 0; i < data_base.monitor.length; ++i)
-				this.setObjectTime(data_base.monitor[i].name, data_base.monitor[i].time)
+				this.setObjectTime(data_base.monitor[i])
 		})
 		this.updateInterval = setInterval(() => {
 			socket.emit('fetch', 'check')
@@ -36,15 +36,14 @@ export default class Content extends Component {
 	addMonitoringObject = object => {
 		this.setState(state=>({monitor: [...state.monitor, object]}))
 	}
-	setObjectTime = (name, time) => {
+	setObjectTime = object => {
 		var idx = this.state.monitor.indexOf(this.state.monitor.find( obj => {
-			return obj.name === name
+			return obj.name === object.name
 		}))
 		this.setState( state => {
 			var monitor = state.monitor
-			var obj = { name: monitor[idx].name, time: time }
 			monitor.splice(idx, 1)
-			return { monitor : [...monitor, obj] }
+			return { monitor : [...monitor, object] }
 		})
 	}
 	render() {
