@@ -13,8 +13,13 @@ def sendBackEnd(url, lat, lon):
 	d["time"] = util.getDate()
 	d["lat"]  = lat
 	d["long"] = lon
+	pic = [('images', ('img.jpg', open('Pictures/img.jpg', 'rb'), 'image/jpeg') )]
 
-	r = requests.post(url, data = d)
+	headers = {
+		"Content-Type": "application/json"
+	}
+
+	r = requests.post(url,  files = pic, data = d)
 
 if __name__ == '__main__':
 	sendBackEnd("http://" + "10.20.2.99" + ":3000/data", None, None)
