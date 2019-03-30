@@ -1,4 +1,4 @@
 # MakeNTU 2019 Team24
-*Topic Lazy Tech*
+**Topic: Lazy Tech**
 ## Objective
 Help people to avoid losing belongings
