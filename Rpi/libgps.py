@@ -29,8 +29,7 @@ def getPos(timeout = 2, logfile = "/home/pi/log/gps.log") :
 		if not data or data == '\n': continue
 		if logfile :
 			with open(logfile, "a") as f :
-				log = str(util.getTime()) + " : " + data
-				f.write(log)
+				f.write(util.makelog(data))
 
 		#parse data
 		data = data.split(',')
@@ -87,6 +86,8 @@ def getPos(timeout = 2, logfile = "/home/pi/log/gps.log") :
 				long_ele = str(data[4])
 
 		else : continue
+
+	gps.close()
 
 	#result
 	if lat_deg == -1 : return None, None
