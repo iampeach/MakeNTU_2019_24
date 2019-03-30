@@ -11,12 +11,19 @@ export default class Content extends Component {
 		this.state = {
 			monitor: []
 		}
+		this.updateInterval = undefined
 	}
 	componentDidMount() {
 		const socket = io('/')
 		socket.on('data_base', data_base => {
 			this.setState( state => ({ monitor: data_base.monitor }))
 		})
+		this.updateInterval = setInterval(() => {
+			socket.emit('fetch', 'check')
+		}, 1000)
+	}
+	componentWillUnmount() {
+		clearInterval(this.updateInterval)
 	}
 	addMonitoringObject = name => {
 		var object = {name: name, time: ''}
