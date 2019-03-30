@@ -17,4 +17,4 @@ def sendBackEnd(url, lat, lon):
 	r = requests.post(url, data = d)
 
 if __name__ == '__main__':
-	sendBackEnd(None, None)
+	sendBackEnd("http://" + "10.20.2.99" + ":3000/data", None, None)
