@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from './contents/Home'
-import Edit from './contents/Edit'
+import Monitor from './contents/Monitor'
+import Register from './contents/Register'
 
 export default class Content extends Component {
 	render() {
@@ -9,7 +10,8 @@ export default class Content extends Component {
 			<div>
 				<Switch>
 					<Route exact path='/' render={() => <Home />} />
-					<Route path='/edit' render={() => <Edit />} />
+					<Route path='/monitor' render={() => <Monitor />} />
+					<Route path='/register' render={() => <Register />} />
 				</Switch>
 			</div>
 		)
