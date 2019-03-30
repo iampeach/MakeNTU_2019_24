@@ -8,7 +8,7 @@ class App extends Component {
 		contents: [
 			{ url: '/', text: 'Home' },
 			{ url: '/monitor', text: 'Monitor' },
-			{ url: '/register', text: 'Register' },
+			//{ url: '/register', text: 'Register' },
 		]
 	}
 	changePage = id => {
