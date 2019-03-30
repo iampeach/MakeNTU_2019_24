@@ -24,12 +24,20 @@ app.get('/monitor', (req, res) => {
 app.get('/register', (req, res) => {
 	res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
+app.post('/data', (req,res) => {
+	if (dataBase.find(req.body.name) === -1)
+		dataBase.push(req.body)
+	else dataBase[dataBase.indexOf(dataBase.find(req.body.name))] = req.body
+})
 
 server = app.listen(port , () => console.log('Listening on port ' + port))
 
 io = socket(server)
 
-io.on('connection', (client) => {
+io.on('connection', client => {
 	console.log('client connected')
 	io.emit('data_base', { monitor: dataBase })
+	client.on('fetch', data => {
+		io.emit('data_base', { monitor: dataBase })
+	})
 })
