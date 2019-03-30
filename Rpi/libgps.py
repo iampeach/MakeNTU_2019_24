@@ -87,6 +87,8 @@ def getPos(timeout = 2, logfile = "/home/pi/log/gps.log") :
 
 		else : continue
 
+	gps.close()
+
 	#result
 	if lat_deg == -1 : return None, None
 

@@ -13,7 +13,7 @@ detector = util.Detector()
 
 #run
 while True:
-	print(util.makelog("capture"))
+	print(util.makelog("take picture"))
 	pic = libcam.capture(cam)
 
 	if detector.predict(pic) : #TODO
