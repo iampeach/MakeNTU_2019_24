@@ -12,10 +12,13 @@ def prepareCam() :
 
 def closeCam(cam) :
 	cam.stop_preview()
+	cam.close()
 
 def capture(cam, name="Pictures/img.jpg") :
 	cam.capture(name)
-	return cv2.imread(name) 
+	result = cv2.imread(name) 
+	print(result.shape)
+	return result
 
 def record(cam, name="Videos/Video" + util.getTime() + ".h264", duration = 60):
 	cam.start_recording(name)

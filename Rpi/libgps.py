@@ -25,10 +25,12 @@ def getPos(timeout = 2, logfile = "/home/pi/log/gps.log") :
 			gps = serial.Serial('/dev/ttyS0', baudrate = 9600, timeout = 0.5)
 			continue
 
-		if not data : continue
+		data = str(data, 'utf-8')
+		if not data or data == '\n': continue
 		if logfile :
 			with open(logfile, "a") as f :
-				f.write(util.getTime() + " : " + data)
+				log = str(util.getTime()) + " : " + data
+				f.write(log)
 
 		#parse data
 		data = data.split(',')
