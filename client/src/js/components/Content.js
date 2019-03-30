@@ -18,6 +18,14 @@ export default class Content extends Component {
 		socket.on('data_base', data_base => {
 			this.setState( state => ({ monitor: data_base.monitor }))
 		})
+		socket.on('add_data_base', data_base => {
+			for (let i = 0; i < data_base.monitor.length; ++i)
+				this.addMonitoringObject(data_base.monitor[i])
+		})
+		socket.on('patch_data_base', data_base => {
+			for (let i = 0; i < data_base.monitor.length; ++i)
+				this.setObjectTime(data_base.monitor[i].name, data_base.monitor[i].time)
+		})
 		this.updateInterval = setInterval(() => {
 			socket.emit('fetch', 'check')
 		}, 1000)
@@ -25,8 +33,7 @@ export default class Content extends Component {
 	componentWillUnmount() {
 		clearInterval(this.updateInterval)
 	}
-	addMonitoringObject = name => {
-		var object = {name: name, time: ''}
+	addMonitoringObject = object => {
 		this.setState(state=>({monitor: [...state.monitor, object]}))
 	}
 	setObjectTime = (name, time) => {
