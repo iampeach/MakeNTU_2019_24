@@ -1,10 +1,13 @@
 $gold: hsl(40, 90%, 30%);
 $blue: hsl(230, 80%, 50%);
+$red: hsl(0, 80%, 50%);
+$dark-red: hsl(0, 70%, 40%);
 $dark-gold: hsl(40, 90%, 15%);
 $dark-grey: hsl(0, 0%, 20%);
 $washed-gold: hsl(40, 100%, 90%);
 $washed-blue: hsl(230, 100%, 95%);
 
+.bg-dark-red { background-color: $dark-red; }
 .bg-dark-grey { background-color: $dark-grey; }
 .bg-dark-gold { background-color: $dark-gold; }
 .bg-washed-gold { background-color: $washed-gold; }
