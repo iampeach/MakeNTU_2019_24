@@ -24,8 +24,9 @@ class Detector():
 
 	def predict(self, image: np.array):
 		image = self._preprocess(image)
-		print(image.shape)
-		blob = cv2.dnn.blobFromImage(image)
+		image=cv2.resize(image, (416, 416)) 
+		blob = cv2.dnn.blobFromImage(image, 1.0/255.0, (416,416), [0,0,0], True, crop=False)
+		# blob = cv2.dnn.blobFromImage(image)
 		self.net.setInput(blob)
 		outs = self.net.forward(self._getOutputsNames())
 		predictions = []
