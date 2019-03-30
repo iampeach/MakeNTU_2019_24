@@ -13,6 +13,8 @@ ling_ele = ""
 
 #run
 while True:
+	time.sleep(0.5)
+	
 	try:
 		data = gps.readline()
 	except Exception as e:
@@ -89,11 +91,3 @@ while True:
 
 	print('time : ', end='')
 	print(time.ctime())
-
-	time.sleep(0.0001)
-
-
-
-
-
-	
