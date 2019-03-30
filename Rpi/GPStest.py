@@ -5,10 +5,13 @@ gps = serial.Serial('/dev/ttyS0', baudrate = 9600, timeout = 0.5)
 
 #run
 while True:
-	data = gps.readline()
-	if not data or data == '\n' or data[0:6] == '$GPTXT': continue
-	print(data)
-	data = data.split(',')
-	for d in data : 
-		if d : print(d)
-	print('-----')
+	try:
+		data = gps.readline()
+	except Exception as e:
+		print(e)
+		continue
+
+	if data == '\n' : continue
+	if data[0:6] == "$GPTXT" : continue
+
+	print(data[:-1])
