@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
+import io from 'socket.io-client'
 import { Switch, Route } from 'react-router-dom'
 import Home from './contents/Home'
 import Monitor from './contents/Monitor'
 import Register from './contents/Register'
 
 export default class Content extends Component {
-	state = {
-		monitor:[
-			{ name: 'obj_name', time: '' },
-			{ name: 'obj_name3', time: '' }
-		]
+	constructor(props) {
+		super(props)
+		this.state = {
+			monitor: []
+		}
 	}
 	componentDidMount() {
-		this.addMonitoringObject('obj_name2')
-		this.setObjectTime('obj_name', '00:00:00')
+		const socket = io('/')
+		socket.on('data_base', data_base => {
+			this.setState( state => ({ monitor: data_base.monitor }))
+		})
 	}
 	addMonitoringObject = name => {
 		var object = {name: name, time: ''}
