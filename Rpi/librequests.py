@@ -2,7 +2,7 @@ import requests
 import util
 import random
 
-def sendBackEnd(lat, lon):
+def sendBackEnd(url, lat, lon):
 	d = dict()
 	if lat is None : lat = 25.045723 + random.random()/1000
 	if lon is None : lon = 121.531018 + random.random()/1000
@@ -14,7 +14,7 @@ def sendBackEnd(lat, lon):
 	d["lat"]  = lat
 	d["long"] = lon
 
-	r = requests.post("http://10.20.2.99:3000/data", data = d)
+	r = requests.post(url, data = d)
 
 if __name__ == '__main__':
 	sendBackEnd(None, None)
