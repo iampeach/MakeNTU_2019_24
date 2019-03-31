@@ -10,7 +10,7 @@ export default class Monitor extends Component {
 		return (
 			<div className='fl-col align-center'>
 				<MonitorObject object={{name: 'Monitoring Object', time: 'Time', lat: 'Latitude', long: 'Longitude'}}/>
-				<hr className='w-700 mr-0 d-mr-30 grey b-solid' />
+				<hr className='w-800 mr-0 d-mr-30 grey b-solid' />
 				{objects}
 			</div>
 		)

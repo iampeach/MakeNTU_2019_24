@@ -10,11 +10,12 @@ export default class MonitorObject extends Component {
 	}
 	render() {
 		var nameStyle = 'w-300 pd-20 mr-10 bold'
-		if (this.state.isObject) nameStyle = nameStyle + ' bg-washed-blue cursor-point'
+		if (this.state.isObject) nameStyle = nameStyle + ' bg-washed-blue hv-bg-washed-blue cursor-point'
 		return(
 			<div className='mr-0-100 fl-row align-center'>
 				<h2 className={nameStyle} onClick={()=>this.map()}>{this.props.object.name}</h2>
 				<h3 className='w-300 pd-20 light'>{this.props.object.time}</h3>
+				{(this.state.isObject)? <img className='cursor-point' src={'../../../../'+this.props.object.path} width='100' onClick={()=>this.map()}/>: <div className='w-100'/>}
 			</div>
 		)
 	}
