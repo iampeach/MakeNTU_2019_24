@@ -6,6 +6,7 @@ $dark-gold: hsl(40, 90%, 15%);
 $dark-grey: hsl(0, 0%, 20%);
 $washed-gold: hsl(40, 100%, 90%);
 $washed-blue: hsl(230, 100%, 95%);
+$hv-washed-blue: hsl(230, 100%, 90%);
 
 .bg-dark-red { background-color: $dark-red; }
 .bg-dark-grey { background-color: $dark-grey; }
@@ -16,4 +17,5 @@ $washed-blue: hsl(230, 100%, 95%);
 .dark-grey { color: $dark-grey; }
 .gold { color: $gold }
 .blue { color: $blue }
-.hv-gold:hover { color : $gold }
+.hv-gold:hover { color: $gold }
+.hv-bg-washed-blue:hover { background-color: $hv-washed-blue; }
