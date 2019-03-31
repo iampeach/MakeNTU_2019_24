@@ -4,12 +4,11 @@ import librequests
 import time
 import util
 
-mainUrl = "10.20.2.99"
+ML_SERVER_URL = "http://10.20.2.96:5000/data"
 
 #init
 print(util.makelog("INIT"))
 cam = libcam.prepareCam()
-detector = util.Detector()
 
 #run
 while True:
@@ -17,13 +16,9 @@ while True:
 	pic = libcam.capture(cam)
 	print(util.makelog("end take picture"))
 
-	if detector.predict(pic) : #TODO
-		print(util.makelog("got object"))
-		lat, lon = libgps.getPos()
-		print(util.makelog("lat:" + str(lat) + ", long:" + str(lon)))
-		librequests.sendBackEnd("http://" + mainUrl + ":3000/data", lat, lon)
-	else : print(util.makelog("no object"))
-
+	lat, lon = libgps.getPos()
+	print(util.makelog("lat:" + str(lat) + ", long:" + str(lon)))
+	librequests.sendBackEnd(ML_SERVER_URL, lat, lon)
 	time.sleep(0.1)
 
 #post
